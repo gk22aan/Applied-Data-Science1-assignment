@@ -8,7 +8,7 @@ data = pd.read_csv('API_19_DS2_en_csv_v2_5361599.csv', skiprows = 4)
 data.describe()
 
 #Function
-def read_world_bank_data(filename, skip):
+def world_bank_data(filename, skip):
     '''This function  takes a filename as argument, reads a dataframe returns
        two dataframes: one with years as columns and one with
        countries as columns.'''
@@ -19,7 +19,7 @@ def read_world_bank_data(filename, skip):
     .drop(['Country Code','Indicator Code'], axis=1).T
     return df_years, df_countries
 # Call function to define color of BAR in Bar plot.
-read_world_bank_data('API_19_DS2_en_csv_v2_5361599.csv',4)
+world_bank_data('API_19_DS2_en_csv_v2_5361599.csv',4)
 
 #Use statistical function for data manipulation
 data_countrywise = data.groupby(['Country Name','Indicator Name']).sum()
@@ -129,7 +129,7 @@ plt.legend(prop={'size': 13}, loc='center left',
 plt.show()
 
 
-#Group by clause for Data Manipulation
+# Data Manipulation using statistical function and finding mean of indicator
 data_countrywise = data.groupby(['Country Name','Indicator Name']).mean()
 data_countrywise
 data_Indicator =
